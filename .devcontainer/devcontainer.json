@@ -1,0 +1,19 @@
+{
+  "name": "R + Quarto Collaborative Environment",
+  "image": "rocker/tidyverse:latest",
+  "features": {
+    "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:2": {
+      "packages": "languageserver,rmarkdown,knitr,gridExtra,tidyverse,cowplot,moderndive"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "REditorSupport.r",
+        "quarto.quarto",
+        "ms-vsliveshare.vsliveshare"
+      ]
+    }
+  }
+}
