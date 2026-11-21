@@ -55,12 +55,12 @@ out.width = "80%"
 
 **Key Variables:**
 
--   Variable 1: \[Description\]
--   Variable 2: \[Description\]
+- Variable 1: \[Description\]
+- Variable 2: \[Description\]
 
 **Data Wrangling:**
 
--   \[Any transformations, new variables created\]
+- \[Any transformations, new variables created\]
 
 ## Question #1: \[Name - Question Statement\]
 
@@ -70,14 +70,14 @@ out.width = "80%"
 
 **Variables used:**
 
--   \[List variables\]
+- \[List variables\]
 
 **New variables/groups defined:**
 
--   \[Any created variables\]
+- \[Any created variables\]
 
 ## Q1: Visualization
-
+Xingyu Duan
 ```{r q1-plot}
 #Your plot code here 
 iris |>
@@ -136,20 +136,20 @@ It is optional to include this as a stand-alone section at the end, you could al
 
 **Data Limitations:**
 
--   \[Limitation 1\]
--   \[Limitation 2\]
+- \[Limitation 1\]
+- \[Limitation 2\]
 
 **Future Directions:**
 
--   \[How these could be addressed\]
+- \[How these could be addressed\]
 
 ## Overall Conclusion
 
 **Key Findings:**
 
--   \[Finding 1 related to theme\]
--   \[Finding 2 related to theme\]
--   \[Finding 3 related to theme\]
+- \[Finding 1 related to theme\]
+- \[Finding 2 related to theme\]
+- \[Finding 3 related to theme\]
 
 **Connection to Theme:**
 
@@ -159,8 +159,8 @@ It is optional to include this as a stand-alone section at the end, you could al
 
 **References:**
 
--   \[Citation 1, if applicable\]
+- \[Citation 1, if applicable\]
 
 **Acknowledgements:**
 
--   \[Any acknowledgements, if applicable\]
+- \[Any acknowledgements, if applicable\]
