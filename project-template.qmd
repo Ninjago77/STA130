@@ -1,7 +1,7 @@
 ---
 title: "Project Title"
 subtitle: "Project subtitle (if applicable)"
-author: "Your names | Group #X"
+author: "Angela Zhang, Deandra Azzahra, Jessica Jung, Shaun Arunmozhi, Xingyu Duan | Group #204-A"
 date: today
 format:
   beamer:
@@ -43,13 +43,13 @@ out.width = "80%"
 
 ## Introduction
 
-**Overall Theme:** \[State your unifying theme\]
+**Overall Theme:**
 
-**Research Goal:** \[What are you investigating?\]
+**Research Goal:** Determine how socioeconomic differences are associated with housing, public safety, crisis rates, amenities, and businesses
 
-**Target Population:** \[Who/what is being studied?\]
+**Target Population:**All 158 neighborhoods in Toronto city.
 
-**Audience:** \[Who is this for?\]
+**Audience:** Municipal policymakers, urban planners, community organizations
 
 ## Data Summary
 
@@ -77,7 +77,9 @@ out.width = "80%"
 - \[Any created variables\]
 
 ## Q1: Visualization
+
 Xingyu Duan
+
 ```{r q1-plot}
 #Your plot code here 
 iris |>
