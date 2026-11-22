@@ -71,16 +71,17 @@ Housing affordability is a key factor in evaluating a city. When we discuss the 
 
 **Variables used:**
 
--  median_household_income
--  pct_renters_30plus_shelter: percentage of tenant households spending 30% or more of income on shelter.
--  pct_owners_30plus_shelter: percentage of owner households spending 305 or more of income on shelter.
--  median_monthly_rent
+- median_household_income
+- pct_renters_30plus_shelter: percentage of tenant households spending 30% or more of income on shelter.
+- pct_owners_30plus_shelter: percentage of owner households spending 305 or more of income on shelter.
+- median_monthly_rent
 
 **New variables/groups defined:**
 
--  income_group (Low / Middle / High)
+- income_group (Low / Middle / High)
 
 ## Q1: Visualization
+
 ```{r}
 cut_off <- median(toronto$median_household_income)
 
@@ -90,6 +91,7 @@ toronto <- toronto |>
            median_household_income < cut_off ~ "Lower"),
          income_group = factor(income_group, levels = c("Lower", "Higher")))
 ```
+
 ```{r q1-plot}
 #Your plot code here 
 toronto |>
