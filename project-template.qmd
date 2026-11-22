@@ -44,13 +44,13 @@ toronto <- read_csv("toronto_neighbourhoods_STA130.csv")
 
 ## Introduction
 
-**Overall Theme:** \[State your unifying theme\]
+**Overall Theme:** \[The wellbeing of wealthy vs less wealthy neighbourhoods in Toronto\]
 
-**Research Goal:** \[What are you investigating?\]
+**Research Goal:** \[Determine how socioeconomic differences are associated with housing, public safety, crisis rates, amenities, and businesses.\]
 
-**Target Population:** \[Who/what is being studied?\]
+**Target Population:** \[All 158 neighbourhoods in Toronto city.\]
 
-**Audience:** \[Who is this for?\]
+**Audience:** \[Municipal policymakers, urban planners, community organisations.\]
 
 ## Data Summary
 
@@ -125,6 +125,8 @@ Insights for Q1
 3.  Owner burden goes the other way: 27.3% in Lower vs. 20.1% in Higher (correlation with income r = -0.43).
 
 ## Question #2: \[Name - Question Statement\]
+
+hello world
 
 \[Repeat structure from Q1\]
 
