@@ -77,7 +77,7 @@ out.width = "80%"
 - \[Any created variables\]
 
 ## Q1: Visualization
-
+Xingyu Duan
 ```{r q1-plot}
 #Your plot code here 
 iris |>
