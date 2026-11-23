@@ -181,13 +181,13 @@ model1 |> tidy() |> select(term, estimate) |>
 ```
 
 Insights for Q2
-- very weak, if any, negative association between concentration of children and level of service of playgrounds and splash pads - R^2 value is 0.05, so only 5% of the association is explained by the relationship between the 2 variables 
+1. There is a very weak, if any, negative association between concentration of children and level of service of playgrounds and splash pads. The R^2 value is 0.05, so only 5% of the association is explained by the relationship between the 2 variables 
 
-- if we were to interpret the linear regression, we would say that for every 1% increase in percent children in the population, the number of playgrounds and splash pads per 1000 kids decreases by 0.108. The intercept does not make sense, as you cannot divide by 0 kids.
+2.  If we were to interpret the linear regression, we would say that for every 1% increase in percent children in the population, the number of playgrounds and splash pads per 1000 kids decreases by 0.108. The intercept does not make sense, as you cannot divide by 0 kids.
 
-- this means that Toronto is doing a good job of providing a proportional amount of playgrounds and splash pads to each neighbourhood, so it is supporting its neighbourhoods well in terms of play infrastructure for children
+3. This means that Toronto is doing a good job of providing a proportional amount of playgrounds and splash pads to each neighbourhood, so it is supporting its neighbourhoods well in terms of play infrastructure for children
 
-- limitation: we do not have data on the size of the playgrounds. Maybe a neighbourhood with a few large playgrounds supports a neighbourhood just as well as a neighbourhood with many smaller playgrounds. Our model only takes into account the quantity of playgrounds and splash pads.
+- Limitation: we do not have data on the size of the playgrounds. Maybe a neighbourhood with a few large playgrounds supports a neighbourhood just as well as a neighbourhood with many smaller playgrounds. Our model only takes into account the quantity of playgrounds and splash pads.
 
 
 ## Question #3: \[Name - Question Statement\]
