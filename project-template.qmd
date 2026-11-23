@@ -1,7 +1,7 @@
 ---
 title: "Project Title"
 subtitle: "Project subtitle (if applicable)"
-author: "Angela Zhang, Deandra Azzahra, Jessica Jung, Shaun Arunmozhi, Xingyu Duan | Group 204-A"
+author: "Angela, David, Dea, Jessica, Shaun | Group 204-A"
 date: today
 format:
   beamer:
@@ -23,6 +23,7 @@ library(tidyverse)
 library(knitr)
 library(cowplot)
 library(moderndive)
+library(broom)
 knitr::opts_chunk$set(
 echo = FALSE,
 include = TRUE,
@@ -44,9 +45,9 @@ toronto <- read_csv("toronto_neighbourhoods_STA130.csv")
 
 ## Introduction
 
-**Overall Theme:** \[The wellbeing of wealthy vs less wealthy neighbourhoods in Toronto\]
+**Overall Theme:**
 
-**Research Goal:** \[Determine how socioeconomic differences are associated with housing, public safety, crisis rates, amenities, and businesses.\]
+**Research Goal:**
 
 **Target Population:** \[All 158 neighbourhoods in Toronto city.\]
 
@@ -120,17 +121,13 @@ toronto |>
   kable(caption = "Median housing cost measures by income group")
 ```
 
-Insights for Q1
-
-1.  Renter burden is similar in both groups (median 37.7% Lower vs. 39.8% Higher), so lower-income areas don't have that much of an economic burden compared with higher-income.
-2.  Median rent is higher in higher-income areas (\$1500 vs \$ 1320).
-3.  Owner burden goes the other way: 27.3% in Lower vs. 20.1% in Higher (correlation with income r = -0.43).
+Insights for Q1 1. Renter burden is similar in both groups (median 37.7% Lower vs. 39.8% Higher), so lower-income areas don't have that much of an economic burden compared with higher-income. 2. Median rent is higher in higher-income areas (\$1500 vs \$ 1320). 3. Owner burden goes the other way: 27.3% in Lower vs. 20.1% in Higher (correlation with income r = -0.43).
 
 ## Question #2: Jessica - Playground and Splash Pad Level of Service and Children
 
-How does the proportion of children in a neighbourhood relate to its number of playgrounds per 1,000 children?
+How does the proportion of children in a neighbourhood relate to its number of playgrounds per 1,000 children? How does the proportion of children in a neighbourhood relate to its number of playgrounds per 1,000 children?
 
-This question is relevant when exploring whether a neighbourhood's infrastructure supports its residents because playgrounds and splash pads are infrastructure that support the well-being of children in a neighbourhood. High-child neighbourhoods may be more likely to have a lower per capita rate of playground and splash pads, and might benefit from investment into building more of them.
+This question is relevant when exploring whether a neighbourhood's infrastructure supports its residents because playgrounds and splash pads are infrastructure that support the well-being of children in a neighbourhood. High-child neighbourhoods may be more likely to have a lower per capita rate of playground and splash pads, and might benefit from investment into building more of them. This question is relevant when exploring whether a neighbourhood's infrastructure supports its residents because playgrounds and splash pads are infrastructure that support the well-being of children in a neighbourhood. High-child neighbourhoods may be more likely to have a lower per capita rate of playground and splash pads, and might benefit from investment into building more of them.
 
 ## Q2: Variables & Approach
 
@@ -166,6 +163,24 @@ This question is relevant when exploring whether a neighbourhood's infrastructur
 - Number of playgrounds and splash pads per 1000 children: a variable that takes the total number of playgrounds and splash pads, divides it by the product of the population and percentage of children, and multiplies it by 1000
 
 ## Q2: Visualization
+
+```{r q1-plot, echo = FALSE}
+#Your plot code here 
+
+playground <- toronto |> mutate(num_play_splash_per_1k_children = ((num_playgrounds
+                                      + num_splash_pads)/(population*(pct_children/100))*1000))
+                                      
+scatterplot <- playground |> ggplot(aes(x=pct_children, y=num_play_splash_per_1k_children)) +
+              geom_point() +
+              geom_smooth(method = "lm", se = FALSE) +
+              labs(title = "Child Concentration vs Service Level of Playgrounds and Splash pads",
+                  x = "Percentage of Residents Aged 0-14",
+                   y = "Number of Playgrounds and Splash Pads per 1000 Children")
+
+
+scatterplot
+
+```
 
 ```{r q1-plot, echo = FALSE}
 #Your plot code here 
