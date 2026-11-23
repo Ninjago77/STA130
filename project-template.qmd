@@ -1,7 +1,7 @@
 ---
 title: "Project Title"
 subtitle: "Project subtitle (if applicable)"
-author: "Your names | Group #X"
+author: "Angela, David, Dea, Jessica, Shaun | Group 204-A"
 date: today
 format:
   beamer:
@@ -23,6 +23,7 @@ library(tidyverse)
 library(knitr)
 library(cowplot)
 library(moderndive)
+library(broom)
 knitr::opts_chunk$set(
 echo = FALSE,
 include = TRUE,
@@ -38,14 +39,14 @@ out.width = "80%"
 
 ```{r load-data, echo=FALSE}
 ### Read in data
-
+toronto_neighbourhoods <- read.csv("toronto_neighbourhoods_STA130.csv")
 ```
 
 ## Introduction
 
-**Overall Theme:** \[The wellbeing of wealthy vs less wealthy neighbourhoods in Toronto\]
+**Overall Theme:** 
 
-**Research Goal:** \[Determine how socioeconomic differences are associated with housing, public safety, crisis rates, amenities, and businesses.\]
+**Research Goal:** 
 
 **Target Population:** \[All 158 neighbourhoods in Toronto city.\]
 
@@ -104,17 +105,71 @@ iris |>
 
 Insights for Q1
 
-## Question #2: \[Name - Question Statement\]
+## Question #2: Jessica - Playground and Splash Pad Level of Service and Children
 
-hello world
+How does the proportion of children in a neighbourhood relate to its number of playgrounds per 1,000 children?
 
-\[Repeat structure from Q1\]
+This question is relevant when exploring whether a neighbourhood's infrastructure supports its residents because playgrounds and splash pads are infrastructure that support the well-being of children in a neighbourhood. High-child neighbourhoods may be more likely to have a lower per capita rate of playground and splash pads, and might benefit from investment into building more of them.
 
 ## Q2: Variables & Approach
 
+**Variables used:**
+
+-     The percentage of residents aged 0-14 years
+-     Total number of people living in the neighbourhood
+-     The number of playground facilities in the neighbourhood.
+-     The number of splash pad facilities in the neighbourhood.
+
+
+**New variables/groups defined:**
+
+-   Population of children: total number of residents aged 0-14 years
+-   Number of playgrounds and splash pads per 1000 children: a variable that takes the total number of playgrounds and splash pads, divides it by the product of the population and percentage of children, and multiplies it by 1000
+
 ## Q2: Visualization
 
+```{r q1-plot, echo = FALSE}
+#Your plot code here 
+
+playground <- toronto_neighbourhoods |> mutate(num_play_splash_per_1k_children = ((num_playgrounds
+                                      + num_splash_pads)/(population*(pct_children/100))*1000))
+                                      
+scatterplot <- playground |> ggplot(aes(x=pct_children, y=num_play_splash_per_1k_children)) +
+              geom_point() +
+              geom_smooth(method = "lm", se = FALSE) +
+              labs(title = "Child Concentration vs Service Level of Playgrounds and Splash pads",
+                  x = "Percentage of Residents Aged 0-14",
+                   y = "Number of Playgrounds and Splash Pads per 1000 Children")
+
+
+scatterplot
+
+```
+
 ## Q2: Summary Table
+
+```{r q1-table, echo = FALSE}
+#Your summary table here
+
+# Here is an example of a nicely formatted table, using the kable function
+
+model1 <- lm(num_play_splash_per_1k_children ~ pct_children, data = playground)
+
+
+model1 |> tidy() |> select(term, estimate) |>
+  kable(caption = "Linear Regression Model of the Concentration of Children vs Level of Service of Playgrounds and Splash Pads")
+
+```
+
+Insights for Q2
+- very weak, if any, negative association between concentration of children and level of service of playgrounds and splash pads - R^2 value is 0.05, so only 5% of the association is explained by the relationship between the 2 variables 
+
+- if we were to interpret the linear regression, we would say that for every 1% increase in percent children in the population, the number of playgrounds and splash pads per 1000 kids decreases by 0.108. The intercept does not make sense, as you cannot divide by 0 kids.
+
+- this means that Toronto is doing a good job of providing a proportional amount of playgrounds and splash pads to each neighbourhood, so it is supporting its neighbourhoods well in terms of play infrastructure for children
+
+- limitation: we do not have data on the size of the playgrounds. Maybe a neighbourhood with a few large playgrounds supports a neighbourhood just as well as a neighbourhood with many smaller playgrounds. Our model only takes into account the quantity of playgrounds and splash pads.
+
 
 ## Question #3: \[Name - Question Statement\]
 
