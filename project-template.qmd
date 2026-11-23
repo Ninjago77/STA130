@@ -120,6 +120,9 @@ toronto |>
 ```
 
 Insights for Q1
+1.  Renter burden is similar in both groups (median 37.7% Lower vs. 39.8% Higher), so lower-income areas don't have that much of an economic burden compared with higher-income.
+2.  Median rent is higher in higher-income areas (\$1500 vs \$ 1320).
+3.  Owner burden goes the other way: 27.3% in Lower vs. 20.1% in Higher (correlation with income r = -0.43).
 
 ## Question #2: Jessica - Playground and Splash Pad Level of Service and Children
 
