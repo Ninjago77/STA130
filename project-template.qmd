@@ -286,7 +286,9 @@ Insights for Q3:
 
 3\. This suggests that neighbourhoods with high walking commuters (like in dense/commercial areas) tend to concentrate many more takeout options per $\text{km}^2$, whereas most lower and moderate-walking neighbourhoods have much lower takeout density with only gradual increases.
 
-## Question #4: \[Name - Question Statement\] (if applicable)
+## Question #4: Angela Zhang - Is there an association between the proportion of high-rise buildings in Toronto neighbourhoods and parkland available per resident?
+
+Public green spaces are an essential component of neighbourhoods, supporting the well-being of residents and serving as safe recreational spaces. Additionally, trees and vegetation provide shade and natural cooling, which alieviates the urban heat island effect, which may be more pertinent to areas with larger proportions of high-rise buildings, considering the fact that densely packed buildings and paved surfaces block airflow and trap more heat. Unlike detached or low-rise homes with yards, residents in high-rise neighbourhoods rely entirely on public parks for outdoor recreation and fresh air, making their need for parkland higher than that of their low-rise counterparts. This research question investigates whether high-rise neighbourhoods rightfully have more parkland available per resident to suit their living needs, as well as identifying any neighbourhoods where this necessity may not be met. This information is valuable to urban planners, as it 
 
 ## Q4: Variables & Approach
 
