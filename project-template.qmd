@@ -311,7 +311,7 @@ toronto <- toronto |>
 ```{r q4-plot, echo = FALSE}
 #Your plot code here 
 parkland_plot <- toronto |>
-  ggplot(aes(x=pct_highrise, y=parkland_per_resident)) +
+  ggplot(aes(x=pct_highrise, y=parkland_per_resident, color = toronto_region)) +
   geom_point(alpha = 0.5) +
   geom_smooth(method = "lm", se = FALSE) +
   labs(
@@ -325,7 +325,7 @@ parkland_plot
 
 ```{r q4-table, echo = FALSE}
 #Your summary table here
-parkland_model <- lm(parkland_per_resident ~ pct_highrise, data = toronto)
+parkland_model <- lm(parkland_per_resident ~ pct_highrise + toronto_region, data = toronto)
 
 parkland_model |>
   tidy() |>
