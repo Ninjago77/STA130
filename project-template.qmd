@@ -39,7 +39,12 @@ out.width = "80%"
 
 ```{r load-data, echo=FALSE}
 ### Read in data
+<<<<<<< HEAD
 toronto_neighbourhoods <- read.csv("toronto_neighbourhoods_STA130.csv")
+=======
+toronto <- read_csv("toronto_neighbourhoods_STA130.csv")
+
+>>>>>>> c57f71dd8c758f418ce0e1b8038dde9ad73073dc
 ```
 
 ## Introduction
@@ -63,49 +68,72 @@ toronto_neighbourhoods <- read.csv("toronto_neighbourhoods_STA130.csv")
 
 - \[Any transformations, new variables created\]
 
-## Question #1: \[Name - Question Statement\]
+## Question #1: Xingyu Duan - Do lower-income neighbourhoods struggle more with shelter costs than higher-income neighbourhoods, and does this differ for renters and owners?
 
-\[Clear statement of the research question\]
+Housing affordability is a key factor in evaluating a city. When we discuss the life in Toronto, we immediately think of the housing cost squeezes the lower-income group the most, our goal is to test if it is true, base on this, we extend to the difference between renters and owners' situations because their behave might be different.
 
 ## Q1: Variables & Approach
 
 **Variables used:**
 
-- \[List variables\]
+- median_household_income
+- pct_renters_30plus_shelter: percentage of tenant households spending 30% or more of income on shelter.
+- pct_owners_30plus_shelter: percentage of owner households spending 305 or more of income on shelter.
+- median_monthly_rent
 
 **New variables/groups defined:**
 
-- \[Any created variables\]
+- income_group (Low / Middle / High)
 
 ## Q1: Visualization
-Xingyu Duan
+
+```{r}
+cut_off <- median(toronto$median_household_income)
+
+toronto <- toronto |>
+  mutate(income_group = case_when(
+           median_household_income >= cut_off ~ "Higher",
+           median_household_income < cut_off ~ "Lower"),
+         income_group = factor(income_group, levels = c("Lower", "Higher")))
+```
+
 ```{r q1-plot}
 #Your plot code here 
-iris |>
-  ggplot(aes(x=Species, y=Sepal.Length)) +
+toronto |>
+  ggplot(aes(x=income_group, y=pct_renters_30plus_shelter)) +
   geom_boxplot() +
-  ylab("Sepal Length")
+  labs(title = "Renter households", x = "Income group", y = "% spending 30%+ on shelter")
+
+toronto |>
+  ggplot(aes(x=income_group, y=pct_owners_30plus_shelter)) +
+  geom_boxplot() +
+  labs(title = "Owner households", x = "Income group", y = "% spending 30%+ on shelter")
 ```
 
 ## Q1: Summary Table
 
 ```{r q1-table}
 #Your summary table here
-
-# Here is an example of a nicely formatted table, using the kable function
-iris |>
-  group_by(Species) |>
-  summarise(
-    Count = n(),
-    `Avg Sepal Length` = round(mean(Sepal.Length), 1),
-    `Avg Petal Length` = round(mean(Petal.Length), 1)
-  ) |>
-  kable(caption = "Comparison of Iris Species")
+toronto |>
+  group_by(`Income group` = income_group) |>
+  summarise(Count = n(),
+            `Median rent ($)` = round(median(median_monthly_rent), 1),
+            `Renter burden (%)` = round(median(pct_renters_30plus_shelter), 1),
+            `Owner burden (%)` = round(median(pct_owners_30plus_shelter), 1)) |>
+  kable(caption = "Median housing cost measures by income group")
 ```
 
 Insights for Q1
 
+<<<<<<< HEAD
 ## Question #2: Jessica - Playground and Splash Pad Level of Service and Children
+=======
+1.  Renter burden is similar in both groups (median 37.7% Lower vs. 39.8% Higher), so lower-income areas don't have that much of an economic burden compared with higher-income.
+2.  Median rent is higher in higher-income areas (\$1500 vs \$ 1320).
+3.  Owner burden goes the other way: 27.3% in Lower vs. 20.1% in Higher (correlation with income r = -0.43).
+
+## Question #2: \[Name - Question Statement\]
+>>>>>>> c57f71dd8c758f418ce0e1b8038dde9ad73073dc
 
 How does the proportion of children in a neighbourhood relate to its number of playgrounds per 1,000 children?
 
