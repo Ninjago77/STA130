@@ -288,13 +288,49 @@ Insights for Q3:
 
 ## Question #4: Angela Zhang - Is there an association between the proportion of high-rise buildings in Toronto neighbourhoods and parkland available per resident?
 
-Public green spaces are an essential component of neighbourhoods, supporting the well-being of residents and serving as safe recreational spaces. Additionally, trees and vegetation provide shade and natural cooling, which alieviates the urban heat island effect, which may be more pertinent to areas with larger proportions of high-rise buildings, considering the fact that densely packed buildings and paved surfaces block airflow and trap more heat. Unlike detached or low-rise homes with yards, residents in high-rise neighbourhoods rely entirely on public parks for outdoor recreation and fresh air, making their need for parkland higher than that of their low-rise counterparts. This research question investigates whether high-rise neighbourhoods rightfully have more parkland available per resident to suit their living needs, as well as identifying any neighbourhoods where this necessity may not be met. This information is valuable to urban planners, as it 
+Public green spaces are an essential component of neighbourhoods, supporting the well-being of residents and serving as safe recreational spaces. Additionally, trees and vegetation provide shade and natural cooling, which alieviates the urban heat island effect, which may be more pertinent to areas with larger proportions of high-rise buildings, considering the fact that densely packed buildings and paved surfaces block airflow and trap more heat. Unlike residents of detached or low-rise homes with yards, residents in high-rise neighbourhoods rely entirely on public parks for outdoor recreation and fresh air, making their need for parkland higher than that of their low-rise counterparts. This research question investigates whether high-rise neighbourhoods rightfully have more parkland available per resident to suit their living needs, as well as identifying neighbourhoods where this necessity may not be met. This information is valuable to urban planners, as it determines priority neighbourhoods for parkland development, narrowing focus on areas where infrastructure may not serve its residents as well.
 
 ## Q4: Variables & Approach
 
-## Q4: Visualization
+**Variables Used:**
 
+- pct_highrise: Percentage of occupied private dwellings that are apartments in buildings with five or more storeys.
+- parkland_area_km2: Total area of land classified as parkland within the neighbourhood, measured in square kilometres (km2).
+- population: Total number of people living in the neighbourhood.
+
+**New variables/groups defined:**
+
+- parkland_per_resident: Area of parkland, measured in square meters (m2), per person living in the neighbourhood.
+
+## Q4: Visualization
+```{r, echo = FALSE}
+toronto <- toronto |>
+  mutate(parkland_per_resident = (park_area_km2*1000000)/population)
+```
+
+```{r q4-plot, echo = FALSE}
+#Your plot code here 
+parkland_plot <- toronto |>
+  ggplot(aes(x=pct_highrise, y=parkland_per_resident)) +
+  geom_point(alpha = 0.5) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    title = "Percentage of high-rise buildings vs. parkland per resident in Toronto neighbourhoods",
+    x = "Percentage of high-rise buildings",
+    y = "Area of parkland per person (m2)")
+
+parkland_plot
+```
 ## Q4: Summary Table
+
+```{r q4-table, echo = FALSE}
+#Your summary table here
+parkland_model <- lm(parkland_per_resident ~ pct_highrise, data = toronto)
+
+parkland_model |>
+  tidy() |>
+  kable(caption = "Linear Regression Model of the Percentage of High-rise buildings vs. Parkland per Resident (m2)")
+```
 
 ## Overall Limitations
 
