@@ -45,7 +45,7 @@ toronto <- read_csv("toronto_neighbourhoods_STA130.csv")
 
 ## Introduction
 
-**Overall Theme:** Does Toronto's neighbourhood infrastructure reflect the people who live there?
+**Overall Theme:** Urban Planning and Neighbourhood Infrastructure Development: Does Toronto's neighbourhood infrastructure reflect the people who live there?
 
 **Research Goal:**
 
