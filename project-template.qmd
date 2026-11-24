@@ -45,7 +45,7 @@ toronto <- read_csv("toronto_neighbourhoods_STA130.csv")
 
 ## Introduction
 
-**Overall Theme:**
+**Overall Theme:** Does Toronto's neighbourhood infrastructure reflect the people who live there?
 
 **Research Goal:**
 
@@ -331,6 +331,16 @@ parkland_model |>
   tidy() |>
   kable(caption = "Linear Regression Model of the Percentage of High-rise buildings vs. Parkland per Resident (m2)")
 ```
+
+Insights for Q4:
+
+1\. All four Toronto regions generally have a negative association between the percentage of high-rise buildings in a neighbourhood and the area of parkland per resident. The fitted regression line for Toronto and East York is visibly below those of Etobicoke, North York, and Scarborough, and also appears flatter. All regions have notable outliers around the lower percentage of high-rise buildings (from 0% to 50%), with Toronto and East York being the only one with a notable outlier on the higher end of percentage of high-rise buildings (at around 90%). Scarborough had one extreme outlier at 500 m^2 per person, which was excluded from the plot to improve readability of the plot and to avoid influence on the fitted regression line. The R-squared value is 0.105, meaning only 10.5% of the variation in parkland per resident is explained by this model. This is to be expected, as there are many other geographical and historical factors also influencing parkland availability.
+
+2\. From the linear regression model, holding Toronto regions constant, every 1 percent increase in high-rise buildings is associated with an average decrease of 0.18 square meters of parkland per resident. The predicted intercepts of Etobicoke (40.62 m^2), North York (35.65 m^2), and Scarborough (37.72 m^2) are similar, while the intercept of Toronto and East York is lower (22.01 m^2). 
+
+3\. The results suggest that neighbourhoods with higher concentrations of high-rise buildings tend to have less parkland per resident across all regions of Toronto, especially Toronto and East York. This indicates that residents in high-rise neighbourhoods not only do not have equal parkland per person, but also have less than those in low-rise neighbourhoods. Thus, the City of Toronto should prioritize developping or expanding more green spaces in these high-density areas, in order to better serve the local residents. 
+
+Limitations: The population variable is from 2021 and is thus outdated, meaning it may not accurately depict the current situation. In addition, non-park green spaces are excluded from the scope of the variable park_area_km2 used, meaning there could be unaccounted for green spaces that exist in the neighbourhoods. This means that individual site conditions must further be analyzed and considered alongside this data.
 
 ## Overall Limitations
 
